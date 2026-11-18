@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5.1 (Python 3.15.2 on win32)" generated="2026-11-18T11:22:26.011788" rpa="false" schemaversion="5">
+<suite id="s1" name="Users" source="C:\Projecten\rf-api-gitlab\RF-API-Gitlab\tests\api\users.robot">
+<test id="s1-t1" name="Get User Successfully" line="5">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-11-18T11:22:26.155225" level="INFO">Creating Session using : alias=jsonplaceholder, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>jsonplaceholder</arg>
+<arg>https://jsonplaceholder.typicode.com</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-11-18T11:22:26.155030" elapsed="0.000413"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-11-18T11:22:26.826866" level="INFO">GET Request : url=https://jsonplaceholder.typicode.com/users/1 
+ path_url=/users/1 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-11-18T11:22:26.827026" level="INFO">GET Response : url=https://jsonplaceholder.typicode.com/users/1 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 18 Nov 2026 10:22:27 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'Cache-Control': 'max-age=43200', 'etag': 'W/"1fd-+2Y3G3w049iSZtw5t1mzSnunngE"', 'expires': '-1', 'pragma': 'no-cache', 'vary': 'Origin, Accept-Encoding', 'x-content-type-options': 'nosniff', 'x-powered-by': 'Express', 'x-ratelimit-limit': '3600000', 'x-ratelimit-remaining': '3597587', 'x-ratelimit-reset': '1793170742', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=NA4LwdL%2Bd7pS6Ay76LONHhPTDAn5fm%2FK6nhQH%2FGoM0xcwIuVfjy6M1jdeSPzF%2BNaRoL%2FeoNWGlW1dBDWCUcGJZj2NZMXJb%2Bq0hhrXTOLl1%2FvoUQOo6ueiMTpOla85LyAqmf1uQcUlmNjoaAuxZsNlblui76yPYjuso7Y"}]}', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Age': '27923', 'cf-cache-status': 'HIT', 'Content-Encoding': 'zstd', 'Server': 'cloudflare', 'CF-RAY': 'a5c6410bbe6cdb60-AMS', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body={
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipcode": "92998-3874",
+    "geo": {
+      "lat": "-37.3159",
+      "lng": "81.1496"
+    }
+  },
+  "phone": "1-770-736-8031 x56442",
+  "website": "hildegard.org",
+  "company": {
+    "name": "Romaguera-Crona",
+    "catchPhrase": "Multi-layered client-server neural-net",
+    "bs": "harness real-time e-markets"
+  }
+} 
+ </msg>
+<msg time="2026-11-18T11:22:26.827108" level="INFO">C:\Projecten\rf-api-gitlab\RF-API-Gitlab\.venv\Lib\site-packages\urllib3\connectionpool.py:1129: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-11-18T11:22:26.827370" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>jsonplaceholder</arg>
+<arg>/users/1</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-11-18T11:22:26.155917" elapsed="0.671490"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-11-18T11:22:26.828897" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-11-18T11:22:26.827832" elapsed="0.001140"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()}[username]</arg>
+<arg>Bret</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-18T11:22:26.829414" elapsed="0.000812"/>
+</kw>
+<status status="PASS" start="2026-11-18T11:22:26.153599" elapsed="0.676881"/>
+</test>
+<status status="PASS" start="2026-11-18T11:22:26.014184" elapsed="0.816971"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Users" id="s1" pass="1" fail="0" skip="0">Users</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
