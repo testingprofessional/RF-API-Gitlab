@@ -8,3 +8,4 @@ robot_api_tests:
   script:
     - pip install -r requirements.txt
     - robot --outputdir results tests/api/users.robot
+    
